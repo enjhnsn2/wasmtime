@@ -57,7 +57,7 @@ pub struct CompilationArtifacts {
     module: Arc<Module>,
 
     /// ELF image with functions code.
-    obj: Box<[u8]>,
+    pub obj: Box<[u8]>,
 
     /// Unwind information for function code.
     unwind_info: Box<[ObjectUnwindInfo]>,

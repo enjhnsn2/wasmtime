@@ -600,6 +600,24 @@ impl Module {
         self.compiled_module().module().name.as_deref()
     }
 
+    /// Returns the object file [`Module`] has.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// # use wasmtime::*;
+    /// # fn main() -> anyhow::Result<(&u8)> {
+    /// # let engine = Engine::default();
+    /// let module = Module::new(&engine, "(module $foo)")?;
+    /// let obj = module.obj();
+    /// # Ok((obj))
+    /// # }
+    /// ```
+    pub fn obj(&self) -> &[u8] {
+        &self.compiled_module().compilation_artifacts().obj
+    }
+
+
     /// Returns the list of imports that this [`Module`] has and must be
     /// satisfied.
     ///
